@@ -1,0 +1,139 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "final_space": false,
+  "osc99": true,
+  "console_title": true,
+  "console_title_style": "template",
+  "console_title_template": "{{ .Folder }}",
+  "transient_prompt": {
+    "background": "transparent",
+    "foreground": "#FEF5ED",
+    "template": " "
+  },
+  "blocks": [
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "python",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "background": "#66ffff",
+          "foreground": "#000000",
+          "properties": {
+            "prefix": "  ",
+            "postfix": "",
+            "template": "{{.Venv}} {{.Major}}.{{.Minor}}"
+          }
+        },
+        {
+          "type": "dart",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "background": "#66ffff",
+          "foreground": "#000000",
+          "properties": {
+            "prefix": "  ",
+            "postfix": "",
+            "template": "{{.Major}}.{{.Minor}}"
+          }
+        },
+        {
+          "type": "text",
+          "style": "powerline",
+          "powerline_symbol": "",
+          "foreground": "#FFFFFF",
+          "background": "#990000",
+          "properties": {
+            "prefix": "  ",
+            "template": "{{if .Env.AWS_PROFILE}}{{.Env.AWS_PROFILE}}:{{end}}{{if .Env.AWS_REGION}}{{.Env.AWS_REGION}}:{{end}}{{if .Env.AWS_ACCOUNT}}{{.Env.AWS_ACCOUNT}}:{{end}}{{if .Env.AWS_NAME}}{{.Env.AWS_NAME}}{{end}}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "right",
+      "newline": false,
+      "segments": [
+        {
+          "type": "git",
+          "style": "diamond",
+          "leading_diamond": "",
+          "trailing_diamond": "",
+          "foreground": "#011627",
+          "background": "#17D7A0",
+          "properties": {
+            "branch_icon": " ",
+            "fetch_status": true,
+            "fetch_stash_count": true,
+            "fetch_worktree_count": true,
+            "fetch_upstream_icon": true,
+            "template": "{{ .UpstreamIcon }}{{ .HEAD }}{{ .BranchStatus }}{{ if .Working.Changed }}  {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }}  {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }}  {{ .StashCount }}{{ end }}"
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "text",
+          "style": "plain",
+          "properties": {
+            "prefix": "",
+            "postfix": "",
+            "text": "╭─"
+          }
+        },
+        {
+          "type": "session",
+          "style": "plain",
+          "foreground": "#33cc33",
+          "background": "#000000",
+          "properties": {
+            "prefix": "",
+            "template": "{{ .UserName }}"
+          }
+        },
+        {
+          "type": "root",
+          "style": "plain",
+          "properties": {
+            "root_icon": " "
+          }
+        },
+        {
+          "type": "path",
+          "style": "plain",
+          "foreground": "#33cc33",
+          "background": "#000000",
+          "properties": {
+            "style": "mixed",
+            "enable_hyperlink": false
+          }
+        }
+      ]
+    },
+    {
+      "type": "prompt",
+      "alignment": "left",
+      "newline": true,
+      "segments": [
+        {
+          "type": "exit",
+          "style": "plain",
+          "properties": {
+            "prefix": "",
+            "template": "╰─",
+            "always_enabled": true
+          }
+        }
+      ]
+    }
+  ]
+}
